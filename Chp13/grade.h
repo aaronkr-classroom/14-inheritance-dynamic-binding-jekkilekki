@@ -7,7 +7,9 @@
 #include <list>
 #include <vector>
 
+using namespace std;
+
 double grade(double, double, double);
-double grade(double, double, vector<double>&);
+double grade(double, double, const vector<double>&); // no const was the error!
 
 #endif

@@ -14,20 +14,20 @@
 using namespace std;
 
 int main() {
-	vector<Core> students; // Core °´Ã¼¿¡ ÇØ´çÇÏ´Â ±â·ÏÀ» ÀĞ°í Ã³¸®
+	vector<Core> students; // Core ê°ì²´ì— í•´ë‹¹í•˜ëŠ” ê¸°ë¡ì„ ì½ê³  ì²˜ë¦¬
 	Core record;
 	string::size_type maxlen = 0;
 
-	// µ¥ÀÌÅÍ¸¦ ÀĞ°í ÀúÀåÇÏ±â
+	// ë°ì´í„°ë¥¼ ì½ê³  ì €ì¥í•˜ê¸°
 	while (record.read(cin)) {
 		maxlen = max(maxlen, record.getName().size());
 		students.push_back(record);
 	}
 
-	// ÇĞ»ı ±â·ÏÀ» ¾ËÆÄºª ¼øÀ¸·Î Á¤·Ä
+	// í•™ìƒ ê¸°ë¡ì„ ì•ŒíŒŒë²³ ìˆœìœ¼ë¡œ ì •ë ¬
 	sort(students.begin(), students.end(), compare);
 
-	// ÀÌ¸§°ú Á¡¼ö Ãâ·Â
+	// ì´ë¦„ê³¼ ì ìˆ˜ ì¶œë ¥
 	for (vector<Core>::size_type i = 0; i != students.size(); ++i) {
 		cout << students[i].getName()
 			<< string(maxlen + 1 - students[i].getName().size(), ' ');

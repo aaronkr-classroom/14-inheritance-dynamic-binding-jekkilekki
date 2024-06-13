@@ -5,6 +5,7 @@
 
 using namespace std;
 
+// Core í´ë˜ìŠ¤ì˜ ë©¤ë²„ í•¨ìˆ˜ ì •ì˜
 istream& read_hw(istream& in, vector<double>& hw);
 
 string Core::getName() const { return name; }
@@ -12,19 +13,21 @@ double Core::grade() const {
 	return ::grade(midterm, final, homework);
 }
 istream& Core::read_common(istream& in) {
-	// ÇĞ»ı ÀÌ¸§°ú ½ÃÇè Á¡¼ö¸¦ ÀÔ·Â¹Ş¾Æ ÀúÀå
+	// í•™ìƒ ì´ë¦„ê³¼ ì‹œí—˜ ì ìˆ˜ë¥¼ ì…ë ¥ë°›ì•„ ì €ì¥
 	in >> name >> midterm >> final;
 	return in;
 }
 istream& Core::read(istream& in) {
 	read_common(in);
-	read_hw(in, homework); // Student_info.h¿¡ ÀÖ´Ù.
+	read_hw(in, homework); // Student_info.hì— ìˆë‹¤.
 	return in;
 }
+
+// ë¹„ë©¤ë²„ í•¨ìˆ˜ ì •ì˜
 bool compare(const Core& c1, const Core& c2) {
 	return c1.getName() < c2.getName();
 }
 
 bool compare_grades(const Core& c1, const Core& c2) {
-	return c1.grade() < c2.grade(); // °¡»ó ÇÔ¼ö »ç¿ëÇØ¾ßµÊ
+	return c1.grade() < c2.grade(); // ê°€ìƒ í•¨ìˆ˜ ì‚¬ìš©í•´ì•¼ë¨
 }

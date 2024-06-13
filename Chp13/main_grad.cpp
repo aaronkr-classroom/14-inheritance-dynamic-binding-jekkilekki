@@ -14,20 +14,20 @@
 using namespace std;
 
 int main() {
-	vector<Grad> students; // ¹éÅÍÀÇ Å¸ÀÔ º¯°æ
-	Grad record; // read ÇÔ¼ö·Î ÀĞÀ» Å¸ÀÔ º¯°æ
+	vector<Grad> students; // ë°±í„°ì˜ íƒ€ì… ë³€ê²½
+	Grad record; // read í•¨ìˆ˜ë¡œ ì½ì„ íƒ€ì… ë³€ê²½
 	string::size_type maxlen = 0;
 
-	// µ¥ÀÌÅÍ¸¦ ÀĞ°í ÀúÀåÇÏ±â
-	while (record.read(cin)) { // Core °´Ã¼°¡ ¾Æ´Ñ Grad °´Ã¼¸¦ ÀĞÀ½
+	// ë°ì´í„°ë¥¼ ì½ê³  ì €ì¥í•˜ê¸°
+	while (record.read(cin)) { // Core ê°ì²´ê°€ ì•„ë‹Œ Grad ê°ì²´ë¥¼ ì½ìŒ
 		maxlen = max(maxlen, record.getName().size());
 		students.push_back(record);
 	}
 
-	// ÇĞ»ı ±â·ÏÀ» ¾ËÆÄºª ¼øÀ¸·Î Á¤·Ä
+	// í•™ìƒ ê¸°ë¡ì„ ì•ŒíŒŒë²³ ìˆœìœ¼ë¡œ ì •ë ¬
 	sort(students.begin(), students.end(), compare);
 
-	// ÀÌ¸§°ú Á¡¼ö Ãâ·Â
+	// ì´ë¦„ê³¼ ì ìˆ˜ ì¶œë ¥
 	for (vector<Grad>::size_type i = 0; i != students.size(); ++i) {
 		cout << students[i].getName()
 			<< string(maxlen + 1 - students[i].getName().size(), ' ');

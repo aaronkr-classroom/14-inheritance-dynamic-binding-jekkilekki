@@ -3,6 +3,7 @@
 
 #include <ios>
 
+#include <fstream>
 #include <iomanip>
 #include <iostream>
 #include <stdexcept>
@@ -14,20 +15,23 @@
 using namespace std;
 
 int main() {
+	// íŒŒì¼ìŠ¤íŠ¸ë¦¼ ë§Œë“¤ê³  "txt" íŒŒì¼ì„ ì½ê¸°
+	ifstream student_file("new_grades.txt"); // ì—ëŸ°
+
 	vector<Student_info> students;
 	Student_info record;
 	string::size_type maxlen = 0;
 
-	// µ¥ÀÌÅÍ¸¦ ÀĞ°í ÀúÀåÇÏ±â
-	while (record.read(cin)) {
+	// ë°ì´í„°ë¥¼ ì½ê³  ì €ì¥í•˜ê¸°
+	while (record.read(student_file)) {
 		maxlen = max(maxlen, record.getName().size());
 		students.push_back(record);
 	}
 
-	// ÇĞ»ı ±â·ÏÀ» ¾ËÆÄºª ¼øÀ¸·Î Á¤·Ä
+	// í•™ìƒ ê¸°ë¡ì„ ì•ŒíŒŒë²³ ìˆœìœ¼ë¡œ ì •ë ¬
 	sort(students.begin(), students.end(), Student_info::compare);
 
-	// ÀÌ¸§°ú Á¡¼ö Ãâ·Â
+	// ì´ë¦„ê³¼ ì ìˆ˜ ì¶œë ¥
 	for (vector<Student_info>::size_type i = 0; i != students.size(); ++i) {
 		cout << students[i].getName()
 			<< string(maxlen + 1 - students[i].getName().size(), ' ');

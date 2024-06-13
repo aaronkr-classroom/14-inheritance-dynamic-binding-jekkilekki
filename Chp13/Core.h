@@ -9,19 +9,19 @@ using namespace std;
 
 class Core {
 public:
-	// Core Å¬·¡½ºÀÇ ±âº» »ı¼ºÀÚ¿Í ±âº» °ª
+	// Core í´ë˜ìŠ¤ì˜ ê¸°ë³¸ ìƒì„±ìì™€ ê¸°ë³¸ ê°’
 	Core() : midterm(0), final(0) {};
 
-	// istreamÀ¸·Î Core °´Ã¼ »ı¼º
+	// istreamìœ¼ë¡œ Core ê°ì²´ ìƒì„±
 	Core(istream& is) { read(is); };
 
 	string getName() const;
-	virtual double grade() const; // °¡»ó ÇÔ¼ö
-	virtual istream& read(istream&); // °¡»ó ÇÔ¼ö
+	virtual double grade() const; // ê°€ìƒ í•¨ìˆ˜
+	virtual istream& read(istream&); // ê°€ìƒ í•¨ìˆ˜
 
-	virtual ~Core() {} // °¡»ó ¼Ò¸êÀÚ
+	virtual ~Core() {} // ê°€ìƒ ì†Œë©¸ì
 protected:
-	istream& read_common(istream&); // ÀÌ¸§, ½ÃÇè, °úÁ¦
+	istream& read_common(istream&); // ì´ë¦„, ì‹œí—˜, ê³¼ì œ
 	double midterm, final;
 	vector<double> homework;
 

@@ -137,12 +137,21 @@
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="Grad.cpp" />
     <ClCompile Include="grade.cpp" />
-    <ClCompile Include="main_core.cpp" />
-    <ClCompile Include="main_grad.cpp" />
-    <ClCompile Include="main_stdinfo.cpp" />
+    <ClCompile Include="main_core.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="main_grad.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="main_stdinfo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="median.cpp" />
     <ClCompile Include="read_hw.cpp" />
     <ClCompile Include="Student_info.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="new_grades.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
